@@ -15,7 +15,7 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 
-	@Transactional
+	@Transactional(readOnly = true)
 	public UserDTO findById(Long id) {
 		User user = userRepository.findById(id).get();
 		return new UserDTO(user);
